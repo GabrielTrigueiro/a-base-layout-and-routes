@@ -82,7 +82,7 @@ export const Login: React.FC = ({ children }) => {
       <Box
         bgcolor={"#fff"}
         sx={{
-          height:'90%',
+          height:'600px',
           width:'400px',
           display: "flex",
           justifyContent: "center",

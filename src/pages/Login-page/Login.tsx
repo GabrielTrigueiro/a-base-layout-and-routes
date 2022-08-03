@@ -8,6 +8,9 @@ import {
   Button,
   CircularProgress,
   Grid,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { FormHandles } from "@unform/core";
@@ -17,6 +20,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LockIcon from "@mui/icons-material/Lock";
 import { FormLoginInput } from "../../shared/components";
 import "./style.css"
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 interface data {
   password: string;
@@ -108,7 +113,7 @@ export const Login: React.FC = ({ children }) => {
               onChange={handleChange("user")}
               endAdornment={
                 <InputAdornment position="end">
-                  <AccountCircleIcon />
+                  <PersonOutlineOutlinedIcon />
                 </InputAdornment>
               }
             />
@@ -128,26 +133,32 @@ export const Login: React.FC = ({ children }) => {
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
-              // startAdornment={
-              //   <InputAdornment position="start">
-              //     <LockIcon />
-              //   </InputAdornment>
-              // }
               endAdornment={
                 <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
+                  <LockOutlinedIcon />
                 </InputAdornment>
               }
-              label="Senha"
+              // endAdornment={
+              //   <InputAdornment position="end">
+              //     <IconButton
+              //       aria-label="toggle password visibility"
+              //       onClick={handleClickShowPassword}
+              //       onMouseDown={handleMouseDownPassword}
+              //       edge="end"
+              //     >
+              //       {values.showPassword ? <VisibilityOff /> : <Visibility />}
+              //     </IconButton>
+              //   </InputAdornment>
+              // }
+              label="Password"
             />
           </FormControl>
+
+          <FormGroup sx={{alignSelf:'start', marginLeft:2.5}}>
+            <FormControlLabel
+              control={<Checkbox onChange={handleClickShowPassword}/>}
+              label={values.showPassword ? 'Ocultar Senha' : 'Mostrar Senha'}/>
+          </FormGroup>
 
           <Button
             type="submit"

@@ -86,7 +86,7 @@ export const Login: React.FC = ({ children }) => {
           borderRadius:'10px'
         }}
       >
-        <Typography fontSize={40} fontWeight={700}>
+        <Typography fontSize={40} fontWeight={500}>
           Login
         </Typography>
 
@@ -155,12 +155,12 @@ export const Login: React.FC = ({ children }) => {
             sx={{
               mt: 2,
               width:'90%',
-              fontSize: "24px",
+              fontSize: "20px",
               fontStyle: "normal",
               fontWeight: 500,
               boxShadow: "none",
               borderRadius: 10,
-              color: "#000000",
+              color: "#fff",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

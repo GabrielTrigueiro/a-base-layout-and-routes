@@ -1,10 +1,13 @@
 import { Login } from "./pages";
 import { AppRoutes } from "./routes";
+import { AppThemeProvider } from "./shared/context";
 
 export const App = () => {
   return (
-    <Login>
-      <AppRoutes/>
-    </Login>
+    <AppThemeProvider>
+      <Login>
+        <AppRoutes/>
+      </Login>
+    </AppThemeProvider>
   );
 }

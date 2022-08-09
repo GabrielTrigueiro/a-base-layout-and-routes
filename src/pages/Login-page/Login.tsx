@@ -23,6 +23,7 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
+import { placeholderAuth } from "../../shared/context/AuthContext";
 
 interface data {
   password: string;
@@ -31,7 +32,6 @@ interface data {
 
 export const Login: React.FC = () => {
   const timer = useRef<number>();
-  const [placeHolderAuth, setPlaceHolderAuth] = useState<boolean>(false);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const formRef = useRef<FormHandles>(null);
@@ -70,7 +70,7 @@ export const Login: React.FC = () => {
     }
   };
 
-  // if (placeHolderAuth) return <Navigate replace to="/home/dashboard" />;
+  if (placeholderAuth.auth) return <Navigate replace to="/home/dashboard" />;
   return (
     <Box
       height={"100vh"}
@@ -138,18 +138,6 @@ export const Login: React.FC = () => {
                   <LockOutlinedIcon />
                 </InputAdornment>
               }
-              // endAdornment={
-              //   <InputAdornment position="end">
-              //     <IconButton
-              //       aria-label="toggle password visibility"
-              //       onClick={handleClickShowPassword}
-              //       onMouseDown={handleMouseDownPassword}
-              //       edge="end"
-              //     >
-              //       {values.showPassword ? <VisibilityOff /> : <Visibility />}
-              //     </IconButton>
-              //   </InputAdornment>
-              // }
               label="Password"
             />
           </FormControl>
@@ -157,7 +145,7 @@ export const Login: React.FC = () => {
           <FormGroup sx={{alignSelf:'start', marginLeft:2.5}}>
             <FormControlLabel
               control={<Checkbox onChange={handleClickShowPassword}/>}
-              label={values.showPassword ? 'Ocultar Senha' : 'Mostrar Senha'}/>
+              label={'Mostrar Senha'}/>
           </FormGroup>
 
           <Button

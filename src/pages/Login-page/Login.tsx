@@ -1,4 +1,15 @@
 import { VisibilityOff, Visibility } from "@mui/icons-material";
+import { Box } from "@mui/system";
+import { FormHandles } from "@unform/core";
+import { Form } from "@unform/web";
+import React, { useRef, useState } from "react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LockIcon from "@mui/icons-material/Lock";
+import { FormLoginInput } from "../../shared/components";
+import "./style.css"
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Navigate } from "react-router-dom";
 import {
   Typography,
   FormControl,
@@ -12,23 +23,13 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
-import { Box } from "@mui/system";
-import { FormHandles } from "@unform/core";
-import { Form } from "@unform/web";
-import React, { useRef, useState } from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LockIcon from "@mui/icons-material/Lock";
-import { FormLoginInput } from "../../shared/components";
-import "./style.css"
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 interface data {
   password: string;
   user: string;
 }
 
-export const Login: React.FC = ({ children }) => {
+export const Login: React.FC = () => {
   const timer = useRef<number>();
   const [placeHolderAuth, setPlaceHolderAuth] = useState<boolean>(false);
   const [success, setSuccess] = useState(false);
@@ -69,10 +70,9 @@ export const Login: React.FC = ({ children }) => {
     }
   };
 
-  if (placeHolderAuth) return <>already logged</>;
+  // if (placeHolderAuth) return <Navigate replace to="/home/dashboard" />;
   return (
     <Box
-    
       height={"100vh"}
       bgcolor={"#23A0C9"}
       display={"flex"}

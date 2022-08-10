@@ -43,7 +43,7 @@ export const AppRoutes = () => {
             <Route path='usuarios' element={<Users/>}/>
             <Route path='historico' element={<Historic/>}/>
           </Route>
-          <Route path='*' element={<NotFound/>}/>
+          <Route path='/home/' element={<Navigate to="/login"/>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -38,7 +38,7 @@ export const SideBarProvider: React.FC = ({children}) => {
             setSideBarOption: handleSetSideBarItems,
             sideBarOption: sideItem,
         }}>
-
+            {children}
         </SideBarContext.Provider>
     )
 }

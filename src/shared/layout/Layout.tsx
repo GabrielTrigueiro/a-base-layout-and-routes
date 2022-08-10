@@ -7,9 +7,9 @@ import { placeholderAuth } from "../context/AuthContext";
 export const Layout = () => {
   if(!placeholderAuth.auth) return <Navigate replace to="/login"/>
   return (
-    <Box width="100vw" height="100vh" display={'flex'}>
+    <Box width="100vw" height="100vh" bgcolor={'#888'}>
       <SideBar>
-        <Outlet />
+        <Outlet/>
       </SideBar>
     </Box>
   );

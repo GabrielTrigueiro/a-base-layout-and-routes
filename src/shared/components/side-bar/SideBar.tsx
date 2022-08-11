@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useSideBarContext } from "../../context/SideBarContext";import MuiDrawer from "@mui/material/Drawer";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -15,7 +15,6 @@ import {
   ListItemText,
   useMediaQuery,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 
 interface IListItemLinkProps {
   to: string;
@@ -25,12 +24,6 @@ interface IListItemLinkProps {
 }
 
 const drawerWidth = 200;
-
-const useStyles = makeStyles({
-  togglebutton:{
-
-  }
-})
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -49,7 +42,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   overflowX: "hidden",
   width: `calc(${theme.spacing(8)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(9)} + 1px)`,
   },
 });
 
@@ -62,28 +55,36 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
   const navigate = useNavigate();
   const resolvedPath = useResolvedPath(to);
   const match = useMatch({ path: resolvedPath.pathname, end: false });
-  const handleClick = () => {
-    navigate(to);
-    onClick?.();
-  };
-  //icon effect
+  const handleClick = () => { navigate(to); onClick?.();};
   return (
     <ListItemButton
-      selected={!!match}
-      sx={{
-        height: 60,
-        "&.Mui-selected": {
-          borderRight: "6px solid #E4DB00",
+    selected={!!match}
+    onClick={handleClick}
+    sx={{
+      height:60,
+      borderRadius:2,
+      margin:0.5,
+      "&.Mui-selected":{
+        background:'#fff',
+        '&:hover': {
+          background: "#fff",
         },
-      }}
-      onClick={handleClick}
+      }
+    }}
     >
       <ListItemIcon>
-        <Icon sx={{ fontSize: "2rem", color: match ? "#E4DB00" : "black" }}>
+        <Icon
+        sx={{
+          fontSize: "2rem",
+          color: match ? "#23A0C9" : "#fff",
+        }}
+        >
           {icon}
         </Icon>
       </ListItemIcon>
-      <ListItemText className="TextIcon" primary={label} />
+      <ListItemText>
+        <Typography sx={{ color: match ? "#23A0C9" : "#fff" }}>{label}</Typography>
+      </ListItemText>
     </ListItemButton>
   );
 };
@@ -117,15 +118,13 @@ export const SideBar: React.FC = ({ children }) => {
   };
 
   return (
-    <Box
-      sx={{ display: "flex", bgcolor: "#459", width: "100%", height: "100%" }}
-    >
+    <Box sx={{ display: "flex", width: "100%", height: "100%" }}>
       <Drawer
         variant={smDown ? "temporary" : "permanent"}
         open={open}
         onClose={toggleSideBar}
       >
-        <Box flex={1} sx={{ mt: theme.spacing(20) }}>
+        <Box flex={1}>
           <List component="nav">
             {sideBarOption.map((drawerOption) => (
               <ListItemLink
@@ -168,7 +167,7 @@ export const SideBar: React.FC = ({ children }) => {
           </Button>
         </Box>
       </Drawer>
-      <Box sx={{ bgcolor: "#393", flexGrow: 1 }}>{children}</Box>
+      <Box sx={{ flexGrow: 1 }}>{children}</Box>
     </Box>
   );
 };

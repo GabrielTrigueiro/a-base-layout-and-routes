@@ -44,6 +44,7 @@ export const AppRoutes = () => {
             <Route path='historico' element={<Historic/>}/>
           </Route>
           <Route path='/home/' element={<Navigate to="/login"/>}/>
+          <Route path='/' element={<Navigate to="/login"/>}/>
       </Routes>
     </BrowserRouter>
   )

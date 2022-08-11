@@ -45,6 +45,7 @@ export const AppRoutes = () => {
           </Route>
           <Route path='/home/' element={<Navigate to="/login"/>}/>
           <Route path='/' element={<Navigate to="/login"/>}/>
+          <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   )

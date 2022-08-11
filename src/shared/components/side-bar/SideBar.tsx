@@ -144,7 +144,6 @@ export const SideBar: React.FC = ({ children }) => {
               padding: 2,
               color: "#000",
               width: "100%",
-              background: "#fff",
               minHeight: 48,
               px: 2.5,
               minWidth: 0,
@@ -154,15 +153,13 @@ export const SideBar: React.FC = ({ children }) => {
           >
             <Box
               sx={{
+                color:'#fff',
                 display: "flex",
                 justifyContens: "center",
                 alignItems: "center",
-                borderStyle: "solid",
-                borderWidth: 2,
-                borderColor: "#000",
               }}
             >
-              {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+              {open ? <ChevronLeftIcon fontSize="large"/> : <ChevronRightIcon fontSize="large"/>}
             </Box>
           </Button>
         </Box>

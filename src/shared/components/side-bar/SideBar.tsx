@@ -118,13 +118,19 @@ export const SideBar: React.FC = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", width: "100%", height: "100%" }}>
+    <Box
+    className="sidebar"
+    sx={{
+      display:"flex",
+      width: "100%",
+      height: "100%"
+    }}>
       <Drawer
         variant={smDown ? "temporary" : "permanent"}
         open={open}
         onClose={toggleSideBar}
       >
-        <Box flex={1}>
+        <Box flex={1} sx={{bgcolor:'#23A0C9'}}>
           <List component="nav">
             {sideBarOption.map((drawerOption) => (
               <ListItemLink
@@ -142,7 +148,6 @@ export const SideBar: React.FC = ({ children }) => {
             onClick={handleDrawerOpenOrClose}
             sx={{
               padding: 2,
-              color: "#000",
               width: "100%",
               minHeight: 48,
               px: 2.5,
@@ -164,7 +169,13 @@ export const SideBar: React.FC = ({ children }) => {
           </Button>
         </Box>
       </Drawer>
-      <Box sx={{ flexGrow: 1 }}>{children}</Box>
+      <Box
+        sx={{
+          flexGrow: 1,
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };

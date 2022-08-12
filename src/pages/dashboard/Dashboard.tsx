@@ -1,7 +1,9 @@
+import { ContentLayout } from "../../shared/layout"
+
 export const Dashboard = () => {
   return (
-    <div>
-      dasboard
-    </div>
+    <ContentLayout tittle={'Dashboard'}>
+      dashboard
+    </ContentLayout>
   )
 }

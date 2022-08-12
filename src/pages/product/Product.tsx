@@ -1,7 +1,9 @@
+import { ContentLayout } from "../../shared/layout"
+
 export const Product = () => {
     return (
-      <div>
+      <ContentLayout tittle={'Produtos'}>
         produtos
-      </div>
+      </ContentLayout>
     )
 }

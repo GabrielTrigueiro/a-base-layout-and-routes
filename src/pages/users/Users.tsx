@@ -1,7 +1,9 @@
+import { ContentLayout } from "../../shared/layout"
+
 export const Users = () => {
     return (
-      <div>
+      <ContentLayout tittle={'Usuários'}>
         usuarios
-      </div>
+      </ContentLayout>
     )
   }
